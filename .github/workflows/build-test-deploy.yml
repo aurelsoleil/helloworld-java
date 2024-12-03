@@ -16,7 +16,7 @@ jobs:
         uses: actions/setup-java@4.5.0
         with:
           java-version: '17'
-          distribution: 'coretto'
+          distribution: 'corretto'
           cache: maven
 
       - name: "Build project"
