@@ -26,7 +26,7 @@ jobs:
         uses: actions/cache@v4.1.2
         with:
           path: "/home/runner/work/lib"
-          key: maven-cache
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
 
       - name: "Build project"
         run: mvn clean package -DskipTests -Djar.filename=helloworld-$PROJECT_VERSION.jar
@@ -49,7 +49,7 @@ jobs:
         uses: actions/cache@v4.1.2
         with:
           path: "/home/runner/work/lib"
-          key: maven-cache
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
       - name: "Run tests"
         run: mvn test
     
