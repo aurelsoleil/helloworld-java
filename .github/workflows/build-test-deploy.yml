@@ -6,6 +6,7 @@ on:
 
 env:
   PROJECT_VERSION: "1.0.0"
+  MAVEN_OPTS: "-Dmaven.repo.local=/home/runner/work/lib"
 
 jobs:
   build-cache: 
@@ -20,7 +21,6 @@ jobs:
         with:
           java-version: '17'
           distribution: 'corretto'
-          cache: maven
 
       - name: "Build project"
         run: mvn clean package -DskipTests -Djar.filename=helloworld-$PROJECT_VERSION.jar
@@ -28,5 +28,6 @@ jobs:
       - name: "Load cache"
         uses: actions/cache@v4.1.2
         with:
-          path: "/maven-cache/libs"
+          path: "/home/runner/work/lib"
+          key: maven-cache
         
