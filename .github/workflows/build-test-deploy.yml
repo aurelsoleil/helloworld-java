@@ -31,5 +31,11 @@ jobs:
       - name: "Build project"
         run: mvn clean package -DskipTests -Djar.filename=helloworld-$PROJECT_VERSION.jar
 
-      
-        
+  tests:
+    runs-on: ubuntu:latest
+    name: "Run Tests"
+    needs: [build-cache]
+    steps:
+      - name: "Run tests"
+        run: mvn test
+    
