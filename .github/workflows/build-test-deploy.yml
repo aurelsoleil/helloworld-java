@@ -29,7 +29,7 @@ jobs:
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
 
       - name: "Build project"
-        run: mvn clean package -DskipTests -Djar.filename=helloworld-$PROJECT_VERSION
+        run: mvn clean package -DskipTests -Djar.finalName=helloworld-$PROJECT_VERSION
 
       - name: "Upload artifact"
         uses: actions/upload-artifact@v4.4.3
