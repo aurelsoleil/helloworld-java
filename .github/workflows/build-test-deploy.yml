@@ -31,6 +31,13 @@ jobs:
       - name: "Build project"
         run: mvn clean package -DskipTests -Djar.filename=helloworld-$PROJECT_VERSION.jar
 
+      - name: "Upload artifact"
+        uses: actions/upload-artifact@v4.4.3
+        with:
+          name: Jar_File
+          path: /home/runner/work/lib/helloworld-$PROJECT_VERSION.jar
+      
+
   tests:
     runs-on: ubuntu-latest
     name: "Run Tests"
