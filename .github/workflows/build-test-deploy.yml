@@ -35,7 +35,7 @@ jobs:
         uses: actions/upload-artifact@v4.4.3
         with:
           name: Jar_File
-          path: /home/runner/work/helloword-java/helloworld-java/target/helloworld-${{ env.PROJECT_VERSION }}.jar
+          path: /home/runner/work/helloworld-java/helloworld-java/target/helloworld-${{ env.PROJECT_VERSION }}.jar
       
 
   tests:
